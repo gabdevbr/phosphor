@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: #000;
+  color: #00ff00;
+  overflow: hidden;
+  height: 100vh;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+.terminal-body {
+  background: #000;
+  color: #00ff00;
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  position: relative;
+  overflow: auto;
+}
+
+.terminal-body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%),
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  background-size: 100% 4px, 100% 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.terminal-scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.03) 2px,
+    rgba(0, 255, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+.terminal-glow {
+  text-shadow: 
+    0 0 5px #00ff00,
+    0 0 10px #00ff00,
+    0 0 15px #00ff00;
+}
+
+.phosphor-icon {
+  filter: 
+    brightness(0) 
+    saturate(100%) 
+    invert(85%) 
+    sepia(100%) 
+    saturate(1000%) 
+    hue-rotate(90deg) 
+    contrast(1.2)
+    drop-shadow(0 0 3px #00ff00);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.terminal-button {
+  background: transparent !important;
+  border: 1px solid #00ff00 !important;
+  color: #00ff00 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  text-transform: uppercase !important;
+  transition: all 0.2s ease !important;
+}
+
+.terminal-button:hover {
+  background: rgba(0, 255, 0, 0.1) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3) !important;
+}
+
+.terminal-input {
+  background: transparent !important;
+  border: 1px solid #00ff00 !important;
+  color: #00ff00 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+}
+
+.terminal-input .MuiInputBase-input {
+  color: #00ff00 !important;
+}
+
+.terminal-input .MuiInputLabel-root {
+  color: #00ff00 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+}
+
+.terminal-input .MuiInputLabel-root.Mui-focused {
+  color: #00ff00 !important;
+}
+
+.terminal-input .MuiOutlinedInput-root {
+  border-color: #00ff00 !important;
+}
+
+.terminal-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #00ff00 !important;
+}
+
+.terminal-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #00ff00 !important;
+}
+
+/* Drop area styles */
+.terminal-drop-area {
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-drop-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 255, 0, 0.05) 10px,
+    rgba(0, 255, 0, 0.05) 20px
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.terminal-drop-area:hover::before {
+  opacity: 1;
+}
+
+.terminal-drop-area.drag-over::before {
+  opacity: 1;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(0, 255, 0, 0.1) 8px,
+    rgba(0, 255, 0, 0.1) 16px
+  );
+}

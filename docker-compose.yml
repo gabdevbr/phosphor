@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  phosphor:
+    image: gabdevbr/phosphor:latest
+    ports:
+      - "9999:3001"
+    volumes:
+      - ./backend/uploads:/app/backend/uploads
+      - ./backend/data:/app/backend/data
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
