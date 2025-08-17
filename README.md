@@ -2,6 +2,13 @@
 
 Portal de aplicações com visual terminal retro que simula monitores CRT antigos.
 
+<img width="660" height="486" alt="image" src="https://github.com/user-attachments/assets/f2ce94ba-f679-48fe-9a58-1e13a5d6c4d6" />
+
+<img width="660" height="486" alt="image" src="https://github.com/user-attachments/assets/4f2951d9-e99a-496d-b2e4-ac2541f76712" />
+
+<img width="661" height="650" alt="image" src="https://github.com/user-attachments/assets/263fa4d1-700a-4385-b1e6-f3ca0c8d4757" />
+
+
 ![GitHub](https://img.shields.io/github/license/gabdevbr/phosphor)
 ![GitHub stars](https://img.shields.io/github/stars/gabdevbr/phosphor)
 ![GitHub forks](https://img.shields.io/github/forks/gabdevbr/phosphor)
