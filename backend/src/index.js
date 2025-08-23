@@ -19,14 +19,7 @@ app.use(helmet());
 app.use(limiter);
 app.use(cors());
 app.use(express.json());
-
-// Middleware para servir uploads com Content-Type correto
-app.use('/uploads', (req, res, next) => {
-  if (path.extname(req.path) === '.svg') {
-    res.setHeader('Content-Type', 'image/svg+xml');
-  }
-  next();
-}, express.static(path.join(__dirname, '../uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Servir arquivos estáticos do frontend
 app.use(express.static(path.join(__dirname, '../../frontend/build')));
