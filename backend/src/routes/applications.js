@@ -27,18 +27,8 @@ const upload = multer({
 
 async function saveImageWithHash(buffer, originalName) {
   const hash = crypto.createHash('sha256').update(buffer).digest('hex');
-  const ext = path.extname(originalName).toLowerCase();
-  
-  // Para SVG, salvar como SVG sem redimensionar
-  if (ext === '.svg') {
-    const filename = `${hash}.svg`;
-    const filepath = path.join(__dirname, '../../uploads', filename);
-    await fs.writeFile(filepath, buffer);
-    return filename;
-  }
-  
-  // Para outras imagens, processar com Sharp
-  const filename = `${hash}.png`;
+  const ext = path.extname(originalName);
+  const filename = `${hash}${ext}`;
   const filepath = path.join(__dirname, '../../uploads', filename);
   
   await sharp(buffer)
@@ -46,7 +36,7 @@ async function saveImageWithHash(buffer, originalName) {
     .png()
     .toFile(filepath);
     
-  return filename;
+  return filename.replace(ext, '.png');
 }
 
 router.get('/', async (req, res) => {
